@@ -1,0 +1,106 @@
+GENERAL
+Server responce time:
+16000 documents
+Server time = 8ms
+Postman = 7.1 secs
+
+After Boot Up:
+/etc/init.d/noip start
+/etc/init.d/hook start
+
+Mosquitto
+Start mosquitto = mosquitto
+Start mosquitto in background = mosquitto -d
+Stop = sudo killall mosquitto
+Start in Debug mode = mosquitto -v
+
+Node JS API
+
+npm install mqtt -g
+https://www.rethinkdb.com/docs/guide/javascript/
+https://blog.risingstack.com/getting-started-with-nodejs-and-mqtt/
+
+Important files in the Api Node Application:
+1.	user.js (DB queries are defined here)
+2.	userRoute.js (http get path is defined here)
+
+Get document with username "haider" = localhost:4000/v1/users/haid
+Get all devices wil be called at app launch and home screen refresh
+
+
+
+
+____________________________________________________________________________
+
+PYTHON
+
+Python Hook Service:
+/haider/hook/hook.py (location)
+/etc/init.d/hook start
+/etc/init.d/hook stop
+
+Connect to ReThink Server:
+r.connect( "54.152.114.19", 28015).repl()
+
+Insert field in table:
+r.db("automateDb").table("devices").insert([
+    {
+            "mac": "5CCF7F8C1278 ",
+            "state": "none",
+            "status": "0",
+            "userid": "1234"
+    }
+]).run()
+
+Update field in table against the MAC address:
+r.db("automateDb").table("devices").filter({"mac":"21FBB8E4"}).update({"status":"on"}).run()
+
+
+Python dependencies:
+sudo
+-get install python-pip
+pip install paho-mqtt
+pip install rethinkdb
+
+Python MQTT:
+https://pypi.python.org/pypi/paho-mqtt
+https://sakshambhatla.wordpress.com/2014/08/11/simple-mqtt-broker-and-client-in-python/
+
+____________________________________________________________________________
+
+automatepakistaN1
+
+
+AMAZON WEB SERVICE:
+
+US - East N. Virginia
+
+Ip: http://54.210.101.205
+automate.access.ly
+
+Iam:
+User: HaiderMirza
+Paswd: haider123?_
+Acc number: 628567010898
+Link: https://628567010898.signin.aws.amazon.com/console/
+Access key ID: AKIAIJ3CHERAJ67RI6ZA
+Secret access key: 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
+
+App publishes on (aliabbas)
+App subscribes to (haider)
+
+__________________________________________________________________
+
+NO - IP:
+
+NO IP
+CHANGE CONFIGURATION
+/usr/local/bin/noip2 -C
+
+START
+/usr/local/bin/noip2
+
+IP DUC (Dynamic Update Client) is installed on the Pi and it is binded to a host name
+(http://haidermirza.ddns.net)
+
+
